@@ -1,0 +1,98 @@
+[
+    {
+        "definitions" : [
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemRegress/src/RiemRegress_auxiliary.cpp",
+                "kind" : 6,
+                "line" : 16,
+                "name" : "cpp_equivariant(arma::cube, std::string)",
+                "parent_name" : "",
+                "usr" : "c:@F@cpp_equivariant#$@N@arma@C@Cube>#d#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#"
+            }
+        ],
+        "file" : "/home/kisung/Desktop/RiemRegress/src/RiemRegress_auxiliary.cpp",
+        "file_last_write" : 1542601783
+    },
+    {
+        "definitions" : [
+        ],
+        "file" : "/home/kisung/Desktop/RiemRegress/src/RiemRegress_auxiliary.h",
+        "file_last_write" : 1542601716
+    },
+    {
+        "definitions" : [
+            {
+                "column" : 8,
+                "file" : "/home/kisung/Desktop/RiemRegress/src/RiemRegress_elocal.cpp",
+                "kind" : 6,
+                "line" : 18,
+                "name" : "elocal_fit_cv(double, arma::cube, arma::cube, arma::mat, arma::mat, std::string)",
+                "parent_name" : "",
+                "usr" : "c:@F@elocal_fit_cv#d#$@N@arma@C@Cube>#d#S0_#$@N@arma@C@Mat>#d#S1_#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#"
+            },
+            {
+                "column" : 12,
+                "file" : "/home/kisung/Desktop/RiemRegress/src/RiemRegress_elocal.cpp",
+                "kind" : 6,
+                "line" : 62,
+                "name" : "elocal_fit(double, arma::cube, arma::mat, std::string)",
+                "parent_name" : "",
+                "usr" : "c:@F@elocal_fit#d#$@N@arma@C@Cube>#d#$@N@arma@C@Mat>#d#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#"
+            },
+            {
+                "column" : 12,
+                "file" : "/home/kisung/Desktop/RiemRegress/src/RiemRegress_elocal.cpp",
+                "kind" : 6,
+                "line" : 114,
+                "name" : "elocal_predict(double, arma::cube, arma::mat, arma::mat, std::string)",
+                "parent_name" : "",
+                "usr" : "c:@F@elocal_predict#d#$@N@arma@C@Cube>#d#$@N@arma@C@Mat>#d#S1_#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#"
+            }
+        ],
+        "file" : "/home/kisung/Desktop/RiemRegress/src/RiemRegress_elocal.cpp",
+        "file_last_write" : 1542673158
+    },
+    {
+        "definitions" : [
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemRegress/src/rcpparma_hello_world.cpp",
+                "kind" : 6,
+                "line" : 18,
+                "name" : "rcpparma_hello_world",
+                "parent_name" : "",
+                "usr" : "c:@F@rcpparma_hello_world#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemRegress/src/rcpparma_hello_world.cpp",
+                "kind" : 6,
+                "line" : 30,
+                "name" : "rcpparma_outerproduct(const arma::colvec &)",
+                "parent_name" : "",
+                "usr" : "c:@F@rcpparma_outerproduct#&1$@N@arma@C@Col>#d#"
+            },
+            {
+                "column" : 8,
+                "file" : "/home/kisung/Desktop/RiemRegress/src/rcpparma_hello_world.cpp",
+                "kind" : 6,
+                "line" : 38,
+                "name" : "rcpparma_innerproduct(const arma::colvec &)",
+                "parent_name" : "",
+                "usr" : "c:@F@rcpparma_innerproduct#&1$@N@arma@C@Col>#d#"
+            },
+            {
+                "column" : 12,
+                "file" : "/home/kisung/Desktop/RiemRegress/src/rcpparma_hello_world.cpp",
+                "kind" : 6,
+                "line" : 47,
+                "name" : "rcpparma_bothproducts(const arma::colvec &)",
+                "parent_name" : "",
+                "usr" : "c:@F@rcpparma_bothproducts#&1$@N@arma@C@Col>#d#"
+            }
+        ],
+        "file" : "/home/kisung/Desktop/RiemRegress/src/rcpparma_hello_world.cpp",
+        "file_last_write" : 1542582788
+    }
+]
