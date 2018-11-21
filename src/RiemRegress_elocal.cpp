@@ -21,8 +21,8 @@ double elocal_fit_cv(double h, arma::cube ytrain, arma::cube ytest, arma::mat xt
   int ntest  = ytest.n_slices;
   int dnrow  = ytrain.n_rows;
   int dncol  = ytrain.n_cols;
-  double h2  = (2.0*h*h);
-  
+  double h2  = (2.0*h*h); 
+
   // KH computation
   arma::mat KH(ntrain,ntest,fill::zeros);
   for (int i=0;i<ntrain;i++){
@@ -30,7 +30,7 @@ double elocal_fit_cv(double h, arma::cube ytrain, arma::cube ytest, arma::mat xt
       KH(i,j) = static_cast<double>(std::exp(static_cast<float>(-std::pow(arma::norm(xtrain.row(i)-xtest.row(j), 2), 2.0)/h2)));
     }
   }
-  
+
   // conversion of 'ytrain' cube
   arma::mat ytrainmat = cpp_equivariant(ytrain, mfdname);
   
@@ -46,11 +46,17 @@ double elocal_fit_cv(double h, arma::cube ytrain, arma::cube ytest, arma::mat xt
     yvectmp /= arma::sum(KH.col(j));
     ytestfit.slice(j) = riemfunc_invequiv(yvectmp.t(),dnrow,dncol,mfdname);
   }
-  
+
   // compute the squared intrinsic distances and sum it E_k(h)
   double cvscore = 0.0;
+  double tmpdist = 0.0;
+  arma::mat mat1(dnrow,dncol,fill::zeros);
+  arma::mat mat2(dnrow,dncol,fill::zeros);
   for (int j=0;j<ntest;j++){
-    cvscore += static_cast<double>(std::pow(static_cast<float>(riemfunc_dist(ytestfit.slice(j),ytest.slice(j),mfdname)),2.0));
+    mat1 = ytestfit.slice(j);
+    mat2 = ytest.slice(j);
+    tmpdist = riemfunc_dist(mat1,mat2,mfdname);
+    cvscore += (tmpdist*tmpdist);
   }
   
   // return

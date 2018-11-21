@@ -44,34 +44,33 @@ rmreg.elocal <- function(y, x=NULL, h=seq(from=0.1,to=2,by=0.1), parallel=TRUE,
   # MAIN 1 : CV or Single 'h'
   if (length(h)>1){ ## case of CV to get optimal value
     if (nCore==1){ 
-      cl = makeCluster(1)
-      registerDoParallel(cl)
+      CVscore = rep(0,rep(length(h)))
+      for (i in 1:length(h)){
+        CVscore[i] = rmreg.elocal.cvsingle(y.cube, x, h[i], mfdname)
+        print(h[i])
+      }
     } else {
       cl = makeCluster(nCore)
       registerDoParallel(cl)
+      # let's care about parallel implementation issue.
+      itforeach=NULL
+      CVscore  = foreach (itforeach=1:length(h), .combine=cbind) %dopar% {
+        rmreg.elocal.cvsingle(y.cube, x, h[itforeach], mfdname)
+      }
+      stopCluster(cl)
     }
-    # let's care about parallel implementation issue.
-    itforeach=NULL
-    CVscore  = foreach (itforeach=1:length(h), .combine=cbind) %dopar% {
-      rmreg.elocal.cvsingle(y.cube, x, h[itforeach], mfdname)
-    }
-    stopCluster(cl)
     CVscore = as.vector(CVscore)
     idxmin  = which.min(CVscore)
     h.optimal  = h[idxmin]
   } else {
     h.optimal  = h # simply, that one.
   }
-  
+
   # MAIN 2 : Compute Fitted Values into a Cube
   yres.fit = elocal_fit(h.optimal,y.cube,x,mfdname)
   yfit.list = rmreg_cube2list(yres.fit$fitted) # as a list
   yfit.mse  = yres.fit$mse
   
-  
-  
-
-
   # MAIN 3 : Prediction
   if (predict==TRUE){
     if ((length(x.predict)==0)&&(is.null(x.predict))){
@@ -123,7 +122,9 @@ rmreg.elocal.cvsingle <- function(y, x, h.val, mfdname){ # y now accepts cube on
       xtest = matrix(xtest)
     }
     
-    score[i] = elocal_fit_cv(h.val, ytrain, ytest, xtrain, xtest, mfdname)
+    score[i] = tryCatch({elocal_fit_cv(h.val, ytrain, ytest, xtrain, xtest, mfdname)},
+                        warning = function(w){return(NA)},
+                        error = function(e){return(NA)})
   }
   return(as.matrix(mean(score)))
 }
