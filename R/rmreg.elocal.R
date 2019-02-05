@@ -8,7 +8,7 @@ rmreg.elocal <- function(y, x=NULL, h=seq(from=0.1,to=2,by=0.1), parallel=TRUE,
   # PREPROCESSING
   # 1. response must be of 'riemdata' class with number of data and mfd name and size
   if ((class(y))!="riemdata"){
-    stop("* rmreg.elocal : the response 'y' must be of 'riemdata' class. Use 'riemfactory' first to manage your data.")
+    stop("* rmreg.elocal : the response 'y' must be of 'riemdata' class. Use 'RiemBase::riemfactory' first to manage your data.")
   }
   ndata   = length(y$data)
   mfdsize = y$size; dnrow = mfdsize[1]; dncol = mfdsize[2];

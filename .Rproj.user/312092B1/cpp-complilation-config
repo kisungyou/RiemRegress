@@ -10,11 +10,11 @@
         "-DNDEBUG",
         "-fopenmp",
         "-fpic",
-        "-fdebug-prefix-map=/build/r-base-oNcpyf/r-base-3.5.1=.",
+        "-fdebug-prefix-map=/build/r-base-i39faS/r-base-3.5.2=.",
         "-fstack-protector-strong",
         "-D_FORTIFY_SOURCE=2"
     ],
-    "hash" : "154260974515425827881542582788",
+    "hash" : "154933064415493306441549330644",
     "is_cpp" : true,
     "pch" : "Rcpp"
 }
